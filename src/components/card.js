@@ -10,30 +10,30 @@ export const Card = ({
   onRemove,
 }) => {
   return (
-    <div class="bg-white rounded-lg shadow-md p-4 max-w-xs">
+    <div className="bg-white rounded-lg shadow-lg p-4 max-w-xs transition-transform duration-200 transform hover:scale-105">
       <img
         alt="Illustration of Chicken Dimsum in a bamboo steamer with chopsticks and a leaf on a mat"
-        class="rounded-t-lg w-full"
+        className="rounded-t-lg w-full"
         src="https://placehold.co/300x200"
       />
-      <div class="p-4">
-        <h2 class="text-md font-semibold flex justify-between">
-          {name}
-          <div class="text-md font-bold">{JSON.stringify(price)}</div>
+      <div className="p-4">
+        <h2 className="text-lg font-semibold flex justify-between items-center">
+          <span className="text-gray-800">{name}</span>
+          <span className="text-md font-semibold text-gray-600">{JSON.stringify(price)}</span>
         </h2>
-        {/* <p class="text-gray-500">{description}</p> */}
-        <div class="flex items-center justify-between mt-4">
-          <div class="flex items-center space-x-2">
+        {/* <p className="text-gray-500">{description}</p> */}
+        <div className="flex items-center justify-between mt-4">
+          <div className="flex items-center space-x-2">
             <button
-              class="bg-gray-200 text-gray-600 rounded-full w-7 h-7 flex items-center justify-center"
+              className={`bg-gray-300 text-gray-700 rounded-full w-8 h-8 flex items-center justify-center transition-colors duration-200 ${quantity === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
               onClick={onRemove}
               disabled={quantity === 0}
             >
               <MinusOutlined />
             </button>
-            <span class="text-md">{quantity}</span>
+            <span className="text-lg text-gray-800">{quantity}</span>
             <button
-              class="bg-blue-500 text-white rounded-full w-7 h-7 flex items-center justify-center"
+              className="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors duration-200 hover:bg-blue-700"
               onClick={onAdd}
             >
               <PlusOutlined />

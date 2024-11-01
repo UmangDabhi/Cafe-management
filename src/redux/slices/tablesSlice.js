@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // Initial state: 10 tables, each with an empty order
-const initialState = Array.from({ length: 10 }, () => ({
+const initialState = Array.from({ length: 20 }, () => ({
   tableId: null,
   orders: [],
   customerName: null,
@@ -52,6 +52,7 @@ const tablesSlice = createSlice({
       const { tableIndex, customerName, customerNumber } = action.payload;
       state[tableIndex].customerName = customerName;
       state[tableIndex].customerNumber = customerNumber;
+      state[tableIndex].tableId = tableIndex;
     },
   },
 });
